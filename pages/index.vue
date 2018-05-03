@@ -3,17 +3,57 @@
         <section class="intro">
             <h1>Get the latest tech news!</h1>
         </section>
-        <PostList />
+        <PostList :posts="loadedPosts"/>
     </div>
 </template>
 
 <script>
-    import PostList from '@/components/Posts/PostList';
-
     export default {
-        components: {
-            PostList
-        }
+        computed: {
+            loadedPosts() {
+                return this.$store.getters.loadedPosts;
+            }
+        },
+        // asyncData() {
+        // asyncData(context, callback) {
+        //     console.log(context);
+        //     // return {}
+        //     // return new Promise()
+        //     setTimeout(() => {
+        //         // return {}
+        //         callback(null, {
+        //             loadedPosts: [
+        //                 { id: '1', title: 'Hello there 1', previewText: 'This is a post - first',   thumbnail: 'https://placeimg.com/640/480/tech'},
+        //                 { id: '2', title: 'Hello there 2', previewText: 'This is a post - second',  thumbnail: 'https://placeimg.com/640/480/tech'},
+        //                 { id: '3', title: 'Hello there 3', previewText: 'This is a post - third',   thumbnail: 'https://placeimg.com/640/480/tech'},
+        //                 { id: '4', title: 'Hello there 4', previewText: 'This is a post - fourth',  thumbnail: 'https://placeimg.com/640/480/tech'},
+        //                 { id: '5', title: 'Hello there 5', previewText: 'This is a post - fifth',   thumbnail: 'https://placeimg.com/640/480/tech'},
+        //             ],
+        //         });
+        //     }, 500);
+        // },
+        // data() {
+        //     return {
+        //         loadedPosts: [
+        //             // { id: '1', title: 'Hello there 1', previewText: 'This is a post - first',   thumbnail: 'https://placeimg.com/640/480/tech'},
+        //             // { id: '2', title: 'Hello there 2', previewText: 'This is a post - second',  thumbnail: 'https://placeimg.com/640/480/tech'},
+        //             // { id: '3', title: 'Hello there 3', previewText: 'This is a post - third',   thumbnail: 'https://placeimg.com/640/480/tech'},
+        //             // { id: '4', title: 'Hello there 4', previewText: 'This is a post - fourth',  thumbnail: 'https://placeimg.com/640/480/tech'},
+        //             // { id: '5', title: 'Hello there 5', previewText: 'This is a post - fifth',   thumbnail: 'https://placeimg.com/640/480/tech'},
+        //         ]
+        //     }
+        // },
+        // created() {
+            // setTimeout(() => {
+            //     this.loadedPosts = [
+            //         { id: '1', title: 'Hello there 1', previewText: 'This is a post - first',   thumbnail: 'https://placeimg.com/640/480/tech'},
+            //         { id: '2', title: 'Hello there 2', previewText: 'This is a post - second',  thumbnail: 'https://placeimg.com/640/480/tech'},
+            //         { id: '3', title: 'Hello there 3', previewText: 'This is a post - third',   thumbnail: 'https://placeimg.com/640/480/tech'},
+            //         { id: '4', title: 'Hello there 4', previewText: 'This is a post - fourth',  thumbnail: 'https://placeimg.com/640/480/tech'},
+            //         { id: '5', title: 'Hello there 5', previewText: 'This is a post - fifth',   thumbnail: 'https://placeimg.com/640/480/tech'},
+            //     ];
+            // }, 1500);
+        // }
     }
 </script>
 

@@ -1,22 +1,34 @@
 <template>
     <section class="post-list">
+        <!--<PostPreview-->
+            <!--id="1"-->
+            <!--:is-admin="isAdmin"-->
+            <!--thumbnail="https://placeimg.com/640/480/tech"-->
+            <!--title="Hello there"-->
+            <!--previewText="This is a post"-->
+        <!--/>-->
+        <!--<PostPreview-->
+            <!--id="2"-->
+            <!--:is-admin="isAdmin"-->
+            <!--thumbnail="https://placeimg.com/640/480/tech"-->
+            <!--title="Hello there"-->
+            <!--previewText="This is a post"-->
+        <!--/>-->
+        <!--<PostPreview-->
+            <!--id="3"-->
+            <!--:is-admin="isAdmin"-->
+            <!--thumbnail="https://placeimg.com/640/480/tech"-->
+            <!--title="Hello there"-->
+            <!--previewText="This is a post"-->
+        <!--/>-->
         <PostPreview
-            id="1"
-            thumbnail="https://placeimg.com/640/480/tech"
-            title="Hello there"
-            previewText="This is a post"
-        />
-        <PostPreview
-            id="2"
-            thumbnail="https://placeimg.com/640/480/tech"
-            title="Hello there"
-            previewText="This is a post"
-        />
-        <PostPreview
-            id="3"
-            thumbnail="https://placeimg.com/640/480/tech"
-            title="Hello there"
-            previewText="This is a post"
+            v-for="post of posts"
+            :key="post.id"
+            :id="post.id"
+            :is-admin="isAdmin"
+            :thumbnail="post.thumbnail"
+            :title="post.title"
+            :previewText="post.previewText"
         />
     </section>
 </template>
@@ -28,6 +40,16 @@
         name: 'PostList',
         components: {
             PostPreview
+        },
+        props: {
+            isAdmin: {
+                type: Boolean,
+                default: false
+            },
+            posts: {
+                type: Array,
+                required: true
+            }
         }
     }
 </script>

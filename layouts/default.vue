@@ -5,7 +5,9 @@
             :show="displaySideNav"
             @close="displaySideNav = false"
         />
+        <!--<transition name="component-fade" mode="out-in">-->
         <nuxt/>
+        <!--</transition>-->
     </div>
 </template>
 
